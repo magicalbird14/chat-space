@@ -26,10 +26,9 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false, unique: true|
+|name|string|null: false, unique: true|
 |email|text|null: false, unique: true|
 |password|text|null: false|
-|groups_users_id|integer|null: false, foreign_key: ture|
 
 ### Association
 - has_many :messeages
@@ -39,8 +38,7 @@ Things you may want to cover:
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupname|text|
-|groups_users_id|integer|null: false, foreign_key: ture|
+|name|string|null: false|
 
 ### Association
 - has_many :users,  through:  :groups_users
@@ -63,7 +61,8 @@ Things you may want to cover:
 |body|text||
 |image|string||
 |user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :users
-- belongs_to :groups
+- belongs_to :user
+- belongs_to :group
