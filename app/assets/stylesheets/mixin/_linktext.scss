@@ -1,0 +1,6 @@
+@mixin linktext($color:#ffffff) {
+  &-a {
+    color: $color;
+    text-decoration: none;
+  }
+}

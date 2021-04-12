@@ -1,0 +1,25 @@
+.side-bar
+  .side-bar__user-name
+    .side-bar__user-name__top-items
+      .side-bar__user-name__top-items__name
+        takashi
+      %ul.side-bar__user-name__top-items__icons
+        %li.side-bar__user-name__top-items__icons__btn
+          = link_to  "#", class: "side-bar__user-name__top-items__icons__btn-a" do
+            = icon('far', 'edit')
+        %li.side-bar__user-name__top-items__icons__btn
+          = link_to  "#", class: "side-bar__user-name__top-items__icons__btn-a" do
+            = icon('fas', 'cog',)
+  .side-bar__group-list
+    .side-bar__group-list__group-box
+      .side-bar__group-list__group-box__group
+        =link_to "#",class: "side-bar__group-list__group-box__group-a" do
+          techcamp
+      .side-bar__group-list__group-box__message
+        まだメッセージがありません。
+    .side-bar__group-list__group-box
+      .side-bar__group-list__group-box__group
+        =link_to "#",class: "side-bar__group-list__group-box__group-a" do
+          techcamp2
+      .side-bar__group-list__group-box__message
+        おはよう。
