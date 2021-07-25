@@ -101,11 +101,12 @@
       }
     }
   }
-  &__message-list{
+  &__messages{
     background-color: #fafafa;
     height: calc(100vh - 100px - 90px);
     padding-top: 35px;
     padding-left: 40px;
+    overflow: scroll;
     &-box{
       margin-bottom: 46px;
       &__info{
@@ -134,25 +135,28 @@
     height: 90px;
     display: flex;
     justify-content:space-between;
-    padding: 20px 40px 20px 50px;
+    padding: 20px 40px 20px 40px;
     line-height: 50px;
+    &__textbox {
+      width: calc(100vw - 505px);
+      position: relative;
+    }
     &__text{
       background-color: #ffffff;
       height: 50px;
-      width: calc(100vw - 505px);
-      display: flex;
-      position: relative;
-      &-message{
-        color: #999999;
-        width: calc(100vw - 505px);
-        padding-left: 10px;
-        padding-right: 10px;
-      }
+      width: 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+      border: none;
       &-image{
         position: absolute;
         right: 10px;
         text-align: center;
         cursor: pointer;
+        .fa-image{
+          font-size: 25px;
+          line-height: 50px;
+        }
         &__del{
           display: none;
         }
@@ -164,6 +168,8 @@
       width: 100px;
       text-align: center;
       cursor: pointer;
+      margin-left: 15px;
+      border: none;
       @include linktext(#ffffff);
     }
   }

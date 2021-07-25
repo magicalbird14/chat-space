@@ -2,36 +2,26 @@
   .chat-main__group-info
     .chat-main__group-info__name
       .chat-main__group-info__name__name
-        test
+        = @group.name
       .chat-main__group-info__name__member
-        Member : takashi.nakajima
+        Member : 
+        /||の中は特に指定はない。ただ、配列usersの中のuserを取り出すのでuserが解りやすい。
+        /そして、userの中で表示させたいカラムを書く。DBで確認する。
+        - @group.users.each do |user|
+          = user.name
     .chat-main__group-info__edit
       .chat-main__group-info__edit__btn
-        =link_to  "#", class: "chat-main__group-info__edit__btn-a" do
+        = link_to edit_group_path(@group), class: "chat-main__group-info__edit__btn-a" do
           edit
   
-  .chat-main__message-list
-    .chat-main__message-list-box
-      .chat-main__message-list-box__info
-        .chat-main__message-list-box__info__name
-          takashi
-        .chat-main__message-list-box__info__daytime
-          2021/03/23(Tue) 00:00:00
-      .chat-main__message-list-box__message
-        おはよう
-    .chat-main__message-list-box
-      .chat-main__message-list-box__info
-        .chat-main__message-list-box__info__name
-          takashi
-        .chat-main__message-list-box__info__daytime
-          2021/03/24(Wed) 00:00:00
-      .chat-main__message-list-box__message
-        おはよう
+  .chat-main__messages
+    = render @messages
 
-  .chat-main__message-form
-    %form.chat-main__message-form__text
-      %input{type: "text", class:"chat-main__message-form__text-message", placeholder: "type a message"}
-      %label{class: "chat-main__message-form__text-image"}
+  = form_for [@group, @message], html:{class: 'chat-main__message-form'} do |f|
+    .chat-main__message-form__textbox
+      = f.text_field :content, class: 'chat-main__message-form__text', placeholder: 'type a message'
+      = f.label :image, class: 'chat-main__message-form__text-image' do
         = icon('fas', 'image')
-        %input{type: "file", class:"chat-main__message-form__text-image__del"}
-    %input{type: "submit", class:"chat-main__message-form__send"}
+        = f.file_field :image, class: 'chat-main__message-form__text-image__del'
+    = f.submit 'Send', class: 'chat-main__message-form__send'
+

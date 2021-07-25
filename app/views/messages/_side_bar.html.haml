@@ -8,20 +8,25 @@
           = link_to new_group_path, class: "side-bar__user-name__top-items__icons__btn-a" do
             = icon('far', 'edit')
         %li.side-bar__user-name__top-items__icons__btn
-          = link_to  edit_user_path(current_user), class: "side-bar__user-name__top-items__icons__btn-a" do
+          = link_to edit_user_path(current_user), class: "side-bar__user-name__top-items__icons__btn-a" do
             = icon('fas', 'cog',)
+
+  /each doを実施する際、=で始めると代入になってしまう。
+  /始まりは-で行うこと。
   .side-bar__group-list
-    .side-bar__group-list__group-box
-      .side-bar__group-list__group-box__group
-        - current_user.groups.each do |group|
-          .group
-            = link_to '#', class: "side-bar__group-list__group-box__group-a" do
-              .group-box__name
-                = group.name
-              .group-box__message
-                メッセージはまだありません。
+    - current_user.groups.each do |group|
+      .side-bar__group-list__group-box
+        = link_to group_messages_path(group), class: "side-bar__group-list__group-box__group-a" do
+          .side-bar__group-list__group-box__group
+            = group.name
+          .side-bar__group-list__group-box__message
+            = group.show_last_message
 
 
-
+/CSSの構造をよく考えること
+/例えば、大きいブロックがあって、その中に小さいブロックがあり、
+/さらに、その中に並列で2ブロックあるとする。
+/HTML上でも同様な構造にする必要がある。
+/HAMLでは階層毎にインデントが下がる。
 
 
