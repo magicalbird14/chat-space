@@ -106,7 +106,7 @@
     height: calc(100vh - 100px - 90px);
     padding-top: 35px;
     padding-left: 40px;
-    overflow: scroll;
+    overflow: scroll;                                                                                                                                                                                                       
     &-box{
       margin-bottom: 46px;
       &__info{
@@ -117,7 +117,7 @@
           color: #333333;
           font-size: 16px;
         }
-        &__daytime{
+        &__daytime{              
           color: #999999;
           font-size: 12px;
           padding-left: 10px;
