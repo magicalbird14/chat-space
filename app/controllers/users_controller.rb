@@ -1,5 +1,20 @@
 class UsersController < ApplicationController
 
+  def index
+    # 以下はmodelに移動する。
+    # return nil if params[:keyword] == ""
+    # "%#{params[:keyword]}%"で任意の0文字以上の文字列を検索
+    # .where.not(id: current_user.id)でログインユーザを除く。除外したい場合に使う。
+    # .limit(10)でで検索取得件数
+    # 以下はmodel以降することにより書き換える。
+    # @users = User.where(['name LIKE ?', "%#{params[:keyword]}%"] ).where.not(id: current_user.id).limit(10)
+    @users = User.search(params[:keyword], current_user.id)
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def edit
   end
 

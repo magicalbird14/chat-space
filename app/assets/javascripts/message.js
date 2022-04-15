@@ -64,6 +64,7 @@ $(function () {
     .fail(function(){
       alert("メッセージ送信に失敗しました。");
     })
+    // alwaysメソッドは成功した時、失敗した時どちらでも作動するので、両方に書く必要がある時に便利。
     .always(function(){
       $('.chat-main__message-form__send').prop('disabled', false);
     });
