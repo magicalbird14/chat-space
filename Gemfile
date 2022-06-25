@@ -69,10 +69,16 @@ gem 'devise'
 
 gem 'pry-rails'
 
+# 画像のアップロード先
+# アプリ内のpublicフォルダ
 gem 'carrierwave'
+# 外部のストレージ
+gem 'fog-aws'
+
 gem 'mini_magick'
 gem 'jquery-rails'
 
 group :production do
   gem 'unicorn', '5.4.1'
 end
+
